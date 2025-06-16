@@ -1,17 +1,40 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
+
+<ion-header class="custom-header">
+  <div class="header-logo">
+    <img src="assets/images/logo.png" alt="Pokédex Logo" class="logo">
+  </div>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<div class="sidebar">
+  <a routerLink="/tabs/favoritos">favoritos</a>
+</div>
+
+<!-- Conteúdo principal -->
+<ion-content id="main-content" class="ion-padding background-image" scroll-y="true">
+  <ion-grid class="grid-container">
+    <ion-row>
+      <ion-col size="12" size-sm="6" size-md="4" size-lg="3" *ngFor="let pokemon of pokemons">
+          <div class="card-wrapper" (click)="abrirDetalhes(pokemon.id.slice(1))"> <!-- remove o "#" do id -->
+          <div class="pokemon-card" [ngStyle]="{ 'background-color': pokemon.color }">
+            <div class="pokemon-id">{{ pokemon.id }}</div>
+            <img [src]="pokemon.image" [alt]="pokemon.name" class="pokemon-img" />
+            <div class="pokemon-name">{{ pokemon.name | titlecase }}</div>
+            <div class="pokemon-types">
+              <span *ngFor="let type of pokemon.types" 
+                    class="type-badge" 
+                    [ngClass]="'type-' + type.toLowerCase()">
+                {{ getTranslatedType(type) }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  
+  <div class="load-button-container">
+    <ion-button (click)="loadMore()">Carregar mais</ion-button>
+  </div>
 </ion-content>

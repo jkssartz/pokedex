@@ -1,0 +1,134 @@
+ion-header.custom-header {
+  background-color: #000;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 3px solid #ff0000;
+  z-index: 1000;
+  position: sticky;
+  top: 0;
+}
+
+.header-logo .logo {
+  width: 180px;
+  display: block;
+  margin: 0 auto;
+}
+
+ion-content.background-image {
+  --ion-background-color: transparent !important;
+  background-image: url('/assets/images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 16px 24px 24px 136px;
+  min-height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* DETALHES DO POKÉMON */
+.pokemon-details-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.5s ease-in-out;
+  color: #222;
+}
+
+.pokemon-details-container img {
+  display: block;
+  margin: 0 auto 24px auto;
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
+.pokemon-details-container h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 24px;
+  text-transform: capitalize;
+  color: #111;
+}
+
+.pokemon-details-container p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.pokemon-details-container strong {
+  color: #000;
+  font-weight: 600;
+}
+
+/* BOTÃO VOLTAR */
+.back-button {
+  margin-bottom: 20px;
+  --color: #333;
+  --border-color: #ccc;
+  font-weight: bold;
+}
+
+/* TIPO DO POKÉMON */
+.type-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  margin: 4px 6px 4px 0;
+  color: #fff;
+  font-weight: 600;
+  background-color: #888; /* fallback visível */
+  text-transform: capitalize;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Cores específicas */
+.type-fire    { background-color: #f08030; }
+.type-water   { background-color: #6890f0; }
+.type-grass   { background-color: #78c850; }
+.type-poison  { background-color: #a040a0; }
+.type-electric{ background-color: #f8d030; }
+.type-flying  { background-color: #a890f0; }
+.type-bug     { background-color: #a8b820; }
+.type-normal  { background-color: #a8a878; }
+.type-ground  { background-color: #e0c068; }
+.type-fairy   { background-color: #ee99ac; }
+.type-fighting{ background-color: #c03028; }
+.type-psychic { background-color: #f85888; }
+.type-rock    { background-color: #b8a038; }
+.type-ghost   { background-color: #705898; }
+.type-ice     { background-color: #98d8d8; }
+.type-dragon  { background-color: #7038f8; }
+.type-dark    { background-color: #705848; }
+.type-steel   { background-color: #b8b8d0; }
+
+/* ANIMAÇÃO */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.type-wrapper {
+  margin-top: 6px;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
