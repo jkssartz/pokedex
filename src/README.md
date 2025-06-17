@@ -12,6 +12,7 @@ O projeto foi pensado para ser funcional, leve e visualmente intuitivo, focando 
 Commits foram realizados aos poucos para facilitar o acompanhamento.  
 O projeto foi pensado para ser visualmente intuitivo.
 
-## Demonstração
+## Demonstração em: 
+src/assets/media/projeto.mp4 ou https://drive.google.com/file/d/1AARkoPuDzGk3dttC5skV00fwtUGwIFkF/view?usp=sharing
 
-🎥 [Clique aqui para assistir ao vídeo de demonstração](src/assets/media/projeto.mp4)
+
