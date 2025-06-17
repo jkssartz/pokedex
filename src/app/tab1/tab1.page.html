@@ -4,9 +4,8 @@
   </div>
 </ion-header>
 
-<!-- Sidebar com botão de favoritos -->
+
 <div class="sidebar">
-  <!-- ✅ Troquei para <ion-button fill="clear"> para visual e compatibilidade -->
   <ion-button fill="clear" [routerLink]="['/tabs/favoritos']">
     Favoritos
   </ion-button>
@@ -23,7 +22,7 @@
         *ngFor="let pokemon of pokemons"
       >
         <div class="card-wrapper">
-          <!-- Ícone de favorito -->
+          
           <div
             class="favorite-icon"
             [class.active]="isFavorito(pokemon)"
@@ -32,7 +31,7 @@
             ★
           </div>
 
-          <!-- Card clicável -->
+        
           <div
             class="pokemon-card"
             (click)="abrirDetalhes(pokemon.id.toString())"
@@ -57,7 +56,7 @@
     </ion-row>
   </ion-grid>
 
-  <!-- Botão carregar mais -->
+  
   <div class="load-button-container">
     <ion-button (click)="loadMore()">Carregar mais</ion-button>
   </div>

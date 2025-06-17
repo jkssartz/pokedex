@@ -12,7 +12,7 @@ import { RouterModule, Router } from '@angular/router'; // ✅ IMPORTADO RouterM
   imports: [
     IonicModule,
     CommonModule,
-    RouterModule // ✅ ADICIONADO RouterModule aqui
+    RouterModule 
   ]
 })
 export class Tab1Page implements OnInit {

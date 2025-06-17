@@ -29,7 +29,7 @@ ion-content.background-image {
   -webkit-font-smoothing: antialiased;
 }
 
-/* DETALHES DO POKÉMON */
+
 .pokemon-details-container {
   max-width: 600px;
   margin: 40px auto;
@@ -77,7 +77,7 @@ ion-content.background-image {
   font-weight: bold;
 }
 
-/* TIPO DO POKÉMON */
+
 .type-badge {
   display: inline-flex;
   align-items: center;
@@ -113,7 +113,7 @@ ion-content.background-image {
 .type-dark    { background-color: #705848; }
 .type-steel   { background-color: #b8b8d0; }
 
-/* ANIMAÇÃO */
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
