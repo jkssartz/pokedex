@@ -4,7 +4,7 @@ import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
 import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
-import { provideHttpClient } from '@angular/common/http'; // 👈 ativa o HttpClient
+import { provideHttpClient } from '@angular/common/http';
 
 if (environment.production) {
   enableProdMode();

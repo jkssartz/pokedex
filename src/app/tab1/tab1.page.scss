@@ -188,3 +188,33 @@ ion-row {
 ion-col {
   overflow: visible !important;
 }
+
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #ccc;
+  cursor: pointer;
+  z-index: 20;
+  transition: color 0.3s ease;
+}
+
+.favorite-icon.active {
+  color: gold;
+}
+
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #ccc;
+  cursor: pointer;
+  z-index: 20;
+  transition: color 0.3s ease;
+}
+
+.favorite-icon.active {
+  color: gold;
+}

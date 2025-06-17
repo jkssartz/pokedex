@@ -1,0 +1,32 @@
+<ion-header class="custom-header">
+  <div class="header-logo">
+    <img src="assets/images/logo.png" alt="Pokédex Logo" class="logo">
+  </div>
+</ion-header>
+
+<div class="sidebar">
+  <a routerLink="/tabs/tab1">voltar à tela inicial</a>
+</div>
+
+<ion-content class="background-image">
+  <ion-grid class="grid-container">
+    <ion-row>
+      <ion-col size="12" size-sm="6" size-md="4" size-lg="3" *ngFor="let pokemon of favoritos">
+        <div class="card-wrapper" (click)="abrirDetalhes(pokemon.id.slice(1))">
+          <div class="pokemon-card" [ngStyle]="{ 'background-color': pokemon.color }">
+            <div class="pokemon-id">{{ pokemon.id }}</div>
+            <img [src]="pokemon.image" [alt]="pokemon.name" class="pokemon-img" />
+            <div class="pokemon-name">{{ pokemon.name | titlecase }}</div>
+            <div class="pokemon-types">
+              <span *ngFor="let type of pokemon.types"
+                    class="type-badge"
+                    [ngClass]="'type-' + type.toLowerCase()">
+                {{ getTranslatedType(type) }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

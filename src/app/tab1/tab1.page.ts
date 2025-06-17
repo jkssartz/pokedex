@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../services/pokemon.service';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { RouterModule, Router } from '@angular/router'; // ✅ IMPORTADO RouterModule
 
 @Component({
   selector: 'app-tab1',
@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./tab1.page.scss'],
   imports: [
     IonicModule,
-    CommonModule
+    CommonModule,
+    RouterModule // ✅ ADICIONADO RouterModule aqui
   ]
 })
 export class Tab1Page implements OnInit {
@@ -42,7 +43,7 @@ export class Tab1Page implements OnInit {
         const description = entry ? entry.flavor_text.replace(/\f|\n|\r/g, ' ') : 'Descrição não disponível.';
 
         return {
-          id: `#${id}`,
+          id: Number(id),
           name: capitalize(p.name),
           image,
           types,
@@ -57,7 +58,11 @@ export class Tab1Page implements OnInit {
   }
 
   abrirDetalhes(id: string) {
-    this.router.navigate([`/tabs/detalhes`, id]);
+    this.router.navigate(['tabs/detalhes', id]);
+  }
+
+  irParaFavoritos() {
+    this.router.navigate(['/tabs/favoritos']);
   }
 
   getTranslatedType(type: string): string {
@@ -82,6 +87,24 @@ export class Tab1Page implements OnInit {
       steel: 'Aço'
     };
     return translations[type.toLowerCase()] || type;
+  }
+
+  toggleFavorito(pokemon: any) {
+    const favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
+    const index = favoritos.findIndex((p: any) => p.id === pokemon.id);
+
+    if (index >= 0) {
+      favoritos.splice(index, 1);
+    } else {
+      favoritos.push(pokemon);
+    }
+
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  }
+
+  isFavorito(pokemon: any): boolean {
+    const favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
+    return favoritos.some((p: any) => p.id === pokemon.id);
   }
 }
 

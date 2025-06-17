@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-detalhes',
+  selector: 'app-favoritos',
   standalone: true,
-  templateUrl: './detalhes.page.html',
-  styleUrls: ['./detalhes.page.scss'],
-  imports: [IonicModule, CommonModule, RouterModule]
+  templateUrl: './favoritos.page.html',
+  styleUrls: ['./favoritos.page.scss'],
+  imports: [IonicModule, CommonModule]
 })
-export class DetalhesPage implements OnInit {
+export class FavoritosPage implements OnInit {
   favoritos: any[] = [];
 
   constructor(private router: Router) {}

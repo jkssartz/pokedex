@@ -1,29 +1,53 @@
-
 <ion-header class="custom-header">
   <div class="header-logo">
-    <img src="assets/images/logo.png" alt="Pokédex Logo" class="logo">
+    <img src="assets/images/logo.png" alt="Pokédex Logo" class="logo" />
   </div>
 </ion-header>
 
-
+<!-- Sidebar com botão de favoritos -->
 <div class="sidebar">
-  <a routerLink="/tabs/favoritos">favoritos</a>
+  <!-- ✅ Troquei para <ion-button fill="clear"> para visual e compatibilidade -->
+  <ion-button fill="clear" [routerLink]="['/tabs/favoritos']">
+    Favoritos
+  </ion-button>
 </div>
 
-<!-- Conteúdo principal -->
 <ion-content id="main-content" class="ion-padding background-image" scroll-y="true">
   <ion-grid class="grid-container">
     <ion-row>
-      <ion-col size="12" size-sm="6" size-md="4" size-lg="3" *ngFor="let pokemon of pokemons">
-          <div class="card-wrapper" (click)="abrirDetalhes(pokemon.id.slice(1))"> <!-- remove o "#" do id -->
-          <div class="pokemon-card" [ngStyle]="{ 'background-color': pokemon.color }">
+      <ion-col
+        size="12"
+        size-sm="6"
+        size-md="4"
+        size-lg="3"
+        *ngFor="let pokemon of pokemons"
+      >
+        <div class="card-wrapper">
+          <!-- Ícone de favorito -->
+          <div
+            class="favorite-icon"
+            [class.active]="isFavorito(pokemon)"
+            (click)="toggleFavorito(pokemon); $event.stopPropagation()"
+          >
+            ★
+          </div>
+
+          <!-- Card clicável -->
+          <div
+            class="pokemon-card"
+            (click)="abrirDetalhes(pokemon.id.toString())"
+            [ngStyle]="{ 'background-color': pokemon.color }"
+          >
             <div class="pokemon-id">{{ pokemon.id }}</div>
             <img [src]="pokemon.image" [alt]="pokemon.name" class="pokemon-img" />
             <div class="pokemon-name">{{ pokemon.name | titlecase }}</div>
+
             <div class="pokemon-types">
-              <span *ngFor="let type of pokemon.types" 
-                    class="type-badge" 
-                    [ngClass]="'type-' + type.toLowerCase()">
+              <span
+                *ngFor="let type of pokemon.types"
+                class="type-badge"
+                [ngClass]="'type-' + type.toLowerCase()"
+              >
                 {{ getTranslatedType(type) }}
               </span>
             </div>
@@ -33,7 +57,7 @@
     </ion-row>
   </ion-grid>
 
-  
+  <!-- Botão carregar mais -->
   <div class="load-button-container">
     <ion-button (click)="loadMore()">Carregar mais</ion-button>
   </div>
